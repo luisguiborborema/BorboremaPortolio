@@ -114,9 +114,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof ScrollReveal !== 'undefined') {
         ScrollReveal({
             distance: '80px',
-            duration: 1500,
+            duration: 1200,
             easing: 'ease-in-out',
-            delay: 200,
+            delay: 150,
             reset: false
         });
 
