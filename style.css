@@ -201,6 +201,9 @@ section:nth-of-type(even) {
     box-shadow: 0 4px 10px var(--shadow-color);
     margin: 10px;
     cursor: pointer;
+    /* Adicionado para garantir que o botão ocupe 100% da largura em mobile */
+    max-width: 320px; /* Limite máximo para botões empilhados em mobile */
+    width: 100%; /* Garante que ocupe a largura total disponível em mobile */
 }
 
 .primary-btn {
@@ -550,6 +553,8 @@ section:nth-of-type(even) {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    min-height: 200px; /* Altura mínima para cards mais uniformes */
+    justify-content: space-between; /* Distribui o conteúdo uniformemente */
 }
 .language-item:hover {
     transform: translateY(-5px);
@@ -1109,6 +1114,8 @@ section:nth-of-type(even) {
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Espaço entre topo e base */
+    width: 100%; /* Garante que o card ocupe toda a largura disponível */
+    margin: 0 auto; /* Centraliza o card dentro do grid */
 }
 .certification-item:hover {
     transform: translateY(-5px);
@@ -1214,7 +1221,7 @@ section:nth-of-type(even) {
     transform: translateY(-3px); /* Efeito de elevação no hover */
 }
 /* Hover específico para cada ícone social */
-.social-links a:hover .fa-linkedin-in { 
+.social-links a:hover .fa-linkedin-in {
     color: #0077b5; /* Cor LinkedIn */
 }
 .social-links a:hover .fa-github {
@@ -1406,48 +1413,215 @@ section:nth-of-type(even) {
     .section-title {
         font-size: 2.5rem;
     }
-    /* ... (restante dos ajustes de media query para 992px) ... */
-}
+    .nav-links {
+        font-size: 0.9rem; /* Ajusta o tamanho da fonte dos links de navegação */
+    }
+    .logo a {
+        font-size: 1.5rem; /* Ajusta o tamanho da fonte do logo */
+    }
+    /* Hero Section */
+    .hero-content-wrapper {
+        flex-direction: column; /* Coloca os elementos um abaixo do outro */
+        gap: 40px;
+        text-align: center; /* Centraliza o texto dentro do wrapper em mobile */
+    }
 
-@media (max-width: 768px) {
-    /* ... (restante dos ajustes de media query para 768px) ... */
-    .hero-text-content .main-name {
-        font-size: 3.5rem;
+    .hero-text-content {
+        padding-right: 0;
+        text-align: center; /* Centraliza todo o conteúdo de texto da coluna */
+        /* width: 100%; Adicionar se necessário para ocupe toda largura disponível */
     }
-    .hero-text-content .tagline {
-        font-size: 1.2rem;
-    }
+
+    .hero-text-content .main-name,
+    .hero-text-content .tagline,
     .hero-text-content .sub-tagline {
-        font-size: 0.95rem;
-    }
-    /* Rodapé 768px */
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-        gap: 50px;
+        text-align: center; /* Garante que o texto individual também seja centralizado */
     }
 
-    .footer-column {
-        min-width: 100%;
+    .hero-buttons {
+        justify-content: center; /* Centraliza os botões */
+        flex-direction: column; /* Empilha os botões */
+        align-items: center; /* Centraliza os itens empilhados (os próprios botões) */
+    }
+
+    .hero-social-links {
+        justify-content: center; /* Centraliza os links sociais */
+    }
+
+    .hero-image-container {
+        height: 400px; /* Ajusta a altura da imagem para telas menores */
+    }
+
+    /* About Section */
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
         text-align: center;
     }
 
-    .footer-column h4::after {
+    .about-image {
+        min-width: unset; /* Remove a largura mínima para flexibilidade */
+        width: 80%; /* Ajusta a largura da imagem */
+        max-width: 300px; /* Garante que a imagem não seja muito grande */
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .about-text h3 {
+        font-size: 1.8rem;
+    }
+
+    .education-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+
+    .education-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .education-details {
+        text-align: center;
+        width: 100%; /* Ocupa a largura total */
+    }
+
+    /* Career Section */
+    .timeline::before {
         left: 50%;
         transform: translateX(-50%);
     }
 
-    .footer-about .footer-logo {
+    .timeline-item {
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .timeline-dot {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -10px; /* Ajusta a posição do dot para mobile */
+    }
+
+    .timeline-content {
+        width: 90%; /* Ajusta a largura do conteúdo da timeline */
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .job-meta {
         justify-content: center;
     }
 
-    .social-icons-footer {
+    .timeline-content ul {
+        text-align: left; /* Mantém as listas alinhadas à esquerda dentro do card */
+    }
+
+    /* Portfolio Section */
+    .featured-project-card {
+        padding: 0; /* Remove padding extra para ocupar mais espaço */
+    }
+
+    .card-content {
+        padding: 20px; /* Ajusta o padding interno do card */
+    }
+
+    .project-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .project-title {
+        font-size: 2rem;
+    }
+
+    .project-actions {
         justify-content: center;
     }
 }
 
-@media (max-width: 480px) {
-    /* ... (restante dos ajustes de media query para 480px) ... */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Ajusta padding para header menor */
+    }
+
+    .main-header {
+        padding: 0.8rem 0;
+    }
+
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .logo a {
+        font-size: 1.3rem;
+    }
+
+    .nav-links {
+        display: none; /* Esconde a navegação padrão em mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Abaixo do header */
+        left: 0;
+        width: 100%;
+        background-color: var(--dark-bg-secondary);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 20px 0;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex; /* Mostra a navegação quando o menu hambúrguer está ativo */
+    }
+
+    .nav-links li {
+        margin: 0;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+    .hamburger-menu {
+        display: block; /* Mostra o botão hambúrguer */
+    }
+
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Hero Section (continuação dos ajustes mobile) */
+    .hero-section {
+        padding: 60px 15px;
+        min-height: auto; /* Deixa o conteúdo definir a altura */
+    }
+
+    .hero-content-wrapper {
+        gap: 30px;
+    }
+
     .hero-text-content .main-name {
         font-size: 2.8rem;
     }
@@ -1457,8 +1631,231 @@ section:nth-of-type(even) {
     .hero-text-content .sub-tagline {
         font-size: 0.9rem;
     }
+    .hero-buttons {
+        flex-direction: column; /* Botões um abaixo do outro */
+        gap: 15px;
+        justify-content: center; /* Centraliza os botões */
+        align-items: center; /* Centraliza os itens empilhados (os próprios botões) */
+    }
     .hero-buttons .btn {
+        width: 100%; /* Botões ocupam a largura total */
+        max-width: 320px; /* Limite a largura para não ficarem muito grandes */
+    }
+    .hero-social-links {
+        justify-content: center; /* Centraliza os links sociais */
+    }
+    .hero-image-container {
+        height: 300px; /* Altura menor para o carrossel em mobile */
+        max-width: 100%; /* Ocupa a largura total disponível */
+    }
+    .carousel-prev-btn,
+    .carousel-next-btn {
+        padding: 10px; /* Reduz o padding dos botões do carrossel */
+        font-size: 1.2rem;
+    }
+
+    /* About Section */
+    .about-subsection h3 {
+        font-size: 1.8rem;
+    }
+    .values-grid,
+    .skills-grid {
+        grid-template-columns: 1fr; /* Uma coluna por padrão */
+    }
+    .languages-grid{
+        grid-template-columns: 1fr; /* Uma coluna por padrão */
+        max-width: 350px; /* Limita a largura dos itens */
+        margin: 0 auto; /* Centraliza */
+    }
+    .language-item{
+        width: 100%; /* Ocupa toda a largura disponível */
+        margin: 0 auto; /* Centraliza */
+    }
+    .language-item,
+    .value-item,
+    .skill-item,
+    .certification-item {
+        max-width: 350px; /* Limita a largura dos itens */
+        margin: 0 auto; /* Centraliza */
+    }
+    .tech-tools-grid {
+        justify-content: center; /* Garante que as tags continuem centralizadas */
+    }
+
+    /* Career Section */
+    .timeline-content {
+        padding: 20px; /* Reduz padding do conteúdo da timeline */
+    }
+    .timeline-content h3 {
+        font-size: 1.8rem;
+    }
+    .timeline-content h4 {
+        font-size: 1.1rem;
+    }
+
+    /* Portfolio Section */
+    .subsection-heading {
+        font-size: 1.8rem;
+        gap: 10px;
+    }
+    .project-title {
+        font-size: 1.8rem;
+    }
+    .project-description {
+        font-size: 0.9rem;
+    }
+    .project-banner {
+        height: 200px; /* Altura menor para o banner do projeto */
+    }
+    .btn-outline-demo,
+    .btn-outline-code {
         padding: 10px 20px;
         font-size: 0.9rem;
     }
+
+    /* Contact Section */
+    .contact-content p {
+        font-size: 1rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px;
+    }
+    .social-links {
+        gap: 20px;
+    }
+    .social-links a {
+        font-size: 2rem;
+    }
+
+    /* Certifications Section */
+    .certifications-grid {
+        grid-template-columns: 1fr; /* Força uma única coluna em mobile */
+        max-width: 350px; /* Limite a largura da grade para não ficar muito larga */
+        margin: 0 auto; /* Centraliza a grade */
+    }
+
+    .certification-item {
+        /* Se precisar de uma altura mais precisa para mobile, pode ajustar aqui */
+        min-height: 180px; /* Mantenha ou ajuste se necessário para mobile */
+    }
+    /* Footer */
+    .footer-content {
+        gap: 30px;
+    }
+    .footer-column {
+        padding: 0; /* Remove padding horizontal para colunas empilhadas */
+    }
+    .footer-column h4 {
+        margin-bottom: 15px;
+    }
+    .footer-about .footer-logo {
+        font-size: 1.3rem;
+    }
+    .footer-about .footer-logo .footer-logo-icon {
+        font-size: 1.5rem;
+    }
+}
+
+/* Ajustes para telas MUITO pequenas (ex: 320px de largura) */
+@media (max-width: 390px) { /* Específico para 390px ou menor */
+    body {
+        padding-top: 55px; /* Ajuste fino para header */
+    }
+    .main-header {
+        padding: 0.6rem 0;
+    }
+    .navbar {
+        padding: 0 10px;
+    }
+    .logo a {
+        font-size: 1.1rem; /* Logo ainda menor */
+    }
+
+    .hero-text-content .main-name {
+        font-size: 2.2rem; /* Reduz ainda mais o título principal */
+    }
+    .hero-text-content .tagline {
+        font-size: 0.9rem;
+    }
+    .hero-text-content .sub-tagline {
+        font-size: 0.85rem;
+    }
+    .hero-buttons {
+        justify-content: center; /* Centraliza os botões */
+        align-items: center; /* Centraliza os itens empilhados (os próprios botões) */
+    }
+    .hero-buttons .btn {
+        max-width: 280px; /* Limite a largura para telas muito pequenas */
+    }
+    .hero-image-container {
+        height: 250px; /* Altura mínima para o carrossel */
+    }
+    .hero-social-links {
+        justify-content: center; /* Centraliza os links sociais */
+    }
+    .carousel-prev-btn,
+    .carousel-next-btn {
+        padding: 8px; /* Botões ainda menores */
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .about-text h3,
+    .timeline-content h3,
+    .subsection-heading {
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    .btn-outline-demo,
+    .btn-outline-code {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.9rem;
+    }
+
+    .social-links a {
+        font-size: 1.8rem;
+    }
+    .footer-column h4 {
+        font-size: 1.1rem;
+    }
+    .footer-about .footer-logo {
+        font-size: 1.1rem;
+    }
+    .footer-about .footer-logo .footer-logo-icon {
+        font-size: 1.3rem;
+    }
+    .footer-links ul li a {
+        font-size: 0.85rem;
+    }
+    .social-icons-footer a {
+        font-size: 1.5rem;
+    }
+    .languages-grid {
+        max-width: 300px; /* Limita a largura dos itens */
+        margin: 0 auto; /* Centraliza */
+    }
+    /* Certifications Section */
+    .certifications-grid {
+        max-width: 300px; /* Ajuste a largura máxima da grade para telas menores ainda */
+        margin: 0 auto;
+    }
+
+    .certification-item {
+        min-height: 180px; /* Mantenha ou ajuste se necessário para mobile muito pequeno */
+        padding: 20px; /* Um pouco menos de padding para telas muito pequenas */
+    }
+
 }
