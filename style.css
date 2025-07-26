@@ -184,6 +184,7 @@ section:nth-of-type(even) {
     text-align: center;
     background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     color: var(--primary-color); /* Fallback */
 }
@@ -1209,7 +1210,9 @@ section:nth-of-type(even) {
     color: var(--text-color-light); /* Cor padrão dos ícones sociais */
     transition: color 0.3s ease, transform 0.3s ease;
 }
-
+.social-links a:hover {
+    transform: translateY(-3px); /* Efeito de elevação no hover */
+}
 /* Hover específico para cada ícone social */
 .social-links a:hover .fa-linkedin-in { 
     color: #0077b5; /* Cor LinkedIn */
@@ -1264,7 +1267,6 @@ section:nth-of-type(even) {
     background-color: var(--primary-color); /* Usa sua cor de destaque */
     border-radius: 1px;
 }
-/* REMOVIDO .footer-column h4::after para manter apenas a linha superior */
 
 .footer-email {
     font-size: 0.95rem;
@@ -1280,7 +1282,7 @@ section:nth-of-type(even) {
 
 .footer-email a:hover { /* Estilo do link de email no hover */
     color: var(--primary-color); /* Muda para a cor de destaque (ciano/turquesa) */
-    text-decoration: underline; /* Adiciona sublinhado no hover */
+    text-decoration: none; /* Remove o sublinhado no hover */
 }
 /* Nova linha separadora que ocupa toda a tela */
 .footer-full-width-divider {
@@ -1345,10 +1347,11 @@ section:nth-of-type(even) {
     color: var(--text-color-muted); /* Links mais suaves */
     font-size: 0.95rem;
     transition: color 0.3s ease;
+    text-decoration: none; /* Remove o sublinhado padrão */
 }
 .footer-links ul li a:hover {
     color: var(--primary-color); /* Destaque ao hover */
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* Coluna "Conecte-se" */
